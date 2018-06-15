@@ -10,17 +10,17 @@ import (
 func TestNewSqList(t *testing.T) {
 	tests := []struct {
 		name string
-		want SqList
+		want *SqList
 	}{
 		// TODO: Add test cases.
 		{
 			name: "list",
-			want: SqList{},
+			want: &SqList{},
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := NewSqList(); !reflect.DeepEqual(got, &tt.want) {
+			if got := NewSqList(); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("NewSqList() = %v, want %v", got, tt.want)
 			}
 		})

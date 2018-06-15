@@ -9,9 +9,9 @@ type SqList struct {
 }
 
 // 初始化一个新的线性表
-func InitList() SqList {
+func NewSqList() *SqList {
 	// var data [MAXSIZE]interface{}
-	return SqList{}
+	return &SqList{}
 }
 
 // 线性表是否为空
@@ -21,6 +21,9 @@ func (list *SqList) ListEmpty() bool {
 
 // 清空线性表
 func (list *SqList) ClearList() {
+	for index := 0; index < list.length; index++ {
+		list.data[index] = nil
+	}
 	list.length = 0
 }
 
@@ -97,6 +100,7 @@ func (list *SqList) DeleteElem(i int) interface{} {
 		}
 	}
 
+	list.data[list.length-1] = nil
 	list.length--
 
 	return e

@@ -7,7 +7,7 @@ import (
 	"testing"
 )
 
-func TestInitList(t *testing.T) {
+func TestNewSqList(t *testing.T) {
 	tests := []struct {
 		name string
 		want SqList
@@ -20,8 +20,8 @@ func TestInitList(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := InitList(); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("InitList() = %v, want %v", got, tt.want)
+			if got := NewSqList(); !reflect.DeepEqual(got, &tt.want) {
+				t.Errorf("NewSqList() = %v, want %v", got, tt.want)
 			}
 		})
 	}

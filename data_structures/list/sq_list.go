@@ -3,16 +3,14 @@ package list
 
 const MAXSIZE = 20
 
-type ElemType int
-
 type SqList struct {
-	data   [MAXSIZE]ElemType
+	data   [MAXSIZE]interface{}
 	length int
 }
 
 // 初始化一个新的线性表
 func InitList() SqList {
-	// var data [MAXSIZE]ElemType
+	// var data [MAXSIZE]interface{}
 	return SqList{}
 }
 
@@ -27,7 +25,7 @@ func (list *SqList) ClearList() {
 }
 
 // 返回线性表中第i个位置的元素
-func (list *SqList) GetElem(index int) ElemType {
+func (list *SqList) GetElem(index int) interface{} {
 	if index < 1 || index > list.length {
 		panic("Ivalid index")
 	}
@@ -40,7 +38,7 @@ func (list *SqList) GetElem(index int) ElemType {
 
 // 在线性表中查找与给定元素e相等的元素，
 // 如果查找成果则返回在表中的序号，失败则返回0
-func (list *SqList) LocateElem(e ElemType) int {
+func (list *SqList) LocateElem(e interface{}) int {
 	if list.length == 0 {
 		panic("Empty list")
 	}
@@ -60,7 +58,7 @@ func (list *SqList) Length() int {
 }
 
 // 在指定位置插入新元素e
-func (list *SqList) InsertElem(i int, e ElemType) {
+func (list *SqList) InsertElem(i int, e interface{}) {
 	if i < 0 || i > list.length+1 {
 		panic("Ivalid i")
 	}
@@ -81,7 +79,7 @@ func (list *SqList) InsertElem(i int, e ElemType) {
 }
 
 // 删除线性表中指定位置的元素，并返回删除的那个元素
-func (list *SqList) DeleteElem(i int) ElemType {
+func (list *SqList) DeleteElem(i int) interface{} {
 	if i < 1 || i > list.length {
 		panic("Ivalid i")
 	}

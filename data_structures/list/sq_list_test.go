@@ -29,7 +29,7 @@ func TestInitList(t *testing.T) {
 
 func TestSqList_ListEmpty(t *testing.T) {
 	type fields struct {
-		data   [MAXSIZE]ElemType
+		data   [MAXSIZE]interface{}
 		length int
 	}
 	tests := []struct {
@@ -46,7 +46,7 @@ func TestSqList_ListEmpty(t *testing.T) {
 			name: "list2",
 			want: false,
 			fields: fields{
-				data:   [MAXSIZE]ElemType{1},
+				data:   [MAXSIZE]interface{}{1},
 				length: 1,
 			},
 		},
@@ -66,7 +66,7 @@ func TestSqList_ListEmpty(t *testing.T) {
 
 func TestSqList_ClearList(t *testing.T) {
 	type fields struct {
-		data   [MAXSIZE]ElemType
+		data   [MAXSIZE]interface{}
 		length int
 	}
 	tests := []struct {
@@ -76,7 +76,7 @@ func TestSqList_ClearList(t *testing.T) {
 		{
 			name: "list1",
 			fields: fields{
-				data:   [MAXSIZE]ElemType{1},
+				data:   [MAXSIZE]interface{}{1},
 				length: 1,
 			},
 		},
@@ -98,7 +98,7 @@ func TestSqList_ClearList(t *testing.T) {
 
 func TestSqList_GetElemt(t *testing.T) {
 	type fields struct {
-		data   [MAXSIZE]ElemType
+		data   [MAXSIZE]interface{}
 		length int
 	}
 	type args struct {
@@ -108,12 +108,12 @@ func TestSqList_GetElemt(t *testing.T) {
 		name   string
 		fields fields
 		args   args
-		want   ElemType
+		want   interface{}
 	}{
 		{
 			name: "list1",
 			fields: fields{
-				data:   [MAXSIZE]ElemType{1, 2, 3},
+				data:   [MAXSIZE]interface{}{1, 2, 3},
 				length: 3,
 			},
 			args: args{index: 2},
@@ -136,11 +136,11 @@ func TestSqList_GetElemt(t *testing.T) {
 
 func TestSqList_LocateElem(t *testing.T) {
 	type fields struct {
-		data   [MAXSIZE]ElemType
+		data   [MAXSIZE]interface{}
 		length int
 	}
 	type args struct {
-		e ElemType
+		e interface{}
 	}
 	tests := []struct {
 		name   string
@@ -151,7 +151,7 @@ func TestSqList_LocateElem(t *testing.T) {
 		{
 			name: "list1",
 			fields: fields{
-				data:   [MAXSIZE]ElemType{1, 2, 3},
+				data:   [MAXSIZE]interface{}{1, 2, 3},
 				length: 3,
 			},
 			args: args{e: 2},
@@ -160,7 +160,7 @@ func TestSqList_LocateElem(t *testing.T) {
 		{
 			name: "list2",
 			fields: fields{
-				data:   [MAXSIZE]ElemType{1, 2, 3},
+				data:   [MAXSIZE]interface{}{1, 2, 3},
 				length: 3,
 			},
 			args: args{e: 4},
@@ -182,42 +182,42 @@ func TestSqList_LocateElem(t *testing.T) {
 
 func TestSqList_InsertElem(t *testing.T) {
 	type fields struct {
-		data   [MAXSIZE]ElemType
+		data   [MAXSIZE]interface{}
 		length int
 	}
 	type args struct {
 		i int
-		e ElemType
+		e interface{}
 	}
 	tests := []struct {
 		name     string
 		fields   fields
 		args     args
-		listData []ElemType
+		listData []interface{}
 	}{
 		{
 			name: "list1",
 			fields: fields{
-				data:   [MAXSIZE]ElemType{1, 2, 3},
+				data:   [MAXSIZE]interface{}{1, 2, 3},
 				length: 3,
 			},
 			args:     args{i: 2, e: 8},
-			listData: []ElemType{1, 8, 2, 3},
+			listData: []interface{}{1, 8, 2, 3},
 		},
 		{
 			name:     "list2",
 			fields:   fields{},
 			args:     args{i: 1, e: 8},
-			listData: []ElemType{8},
+			listData: []interface{}{8},
 		},
 		{
 			name: "list2",
 			fields: fields{
-				data:   [MAXSIZE]ElemType{1, 2, 3},
+				data:   [MAXSIZE]interface{}{1, 2, 3},
 				length: 3,
 			},
 			args:     args{i: 4, e: 8},
-			listData: []ElemType{1, 2, 3, 8},
+			listData: []interface{}{1, 2, 3, 8},
 		},
 		// TODO: Add test cases.
 	}
@@ -241,7 +241,7 @@ func TestSqList_InsertElem(t *testing.T) {
 
 func TestSqList_Length(t *testing.T) {
 	type fields struct {
-		data   [MAXSIZE]ElemType
+		data   [MAXSIZE]interface{}
 		length int
 	}
 	tests := []struct {
@@ -252,7 +252,7 @@ func TestSqList_Length(t *testing.T) {
 		{
 			name: "list1",
 			fields: fields{
-				data:   [MAXSIZE]ElemType{1, 2, 3},
+				data:   [MAXSIZE]interface{}{1, 2, 3},
 				length: 3,
 			},
 			want: 3,
@@ -278,7 +278,7 @@ func TestSqList_Length(t *testing.T) {
 
 func TestSqList_DeleteElem(t *testing.T) {
 	type fields struct {
-		data   [MAXSIZE]ElemType
+		data   [MAXSIZE]interface{}
 		length int
 	}
 	type args struct {
@@ -288,27 +288,27 @@ func TestSqList_DeleteElem(t *testing.T) {
 		name     string
 		fields   fields
 		args     args
-		want     ElemType
-		listData []ElemType
+		want     interface{}
+		listData []interface{}
 	}{
 		{
 			name: "list1",
 			fields: fields{
-				data:   [MAXSIZE]ElemType{1, 2, 3},
+				data:   [MAXSIZE]interface{}{1, 2, 3},
 				length: 3,
 			},
 			args:     args{i: 3},
-			listData: []ElemType{1, 2},
+			listData: []interface{}{1, 2},
 			want:     3,
 		},
 		{
 			name: "list2",
 			fields: fields{
-				data:   [MAXSIZE]ElemType{1, 2, 3},
+				data:   [MAXSIZE]interface{}{1, 2, 3},
 				length: 3,
 			},
 			args:     args{i: 2},
-			listData: []ElemType{1, 3},
+			listData: []interface{}{1, 3},
 			want:     2,
 		},
 	}

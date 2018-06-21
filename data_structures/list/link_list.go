@@ -21,17 +21,17 @@ func NewNode(data interface{}, next *Node) *Node {
 	return &Node{data, next}
 }
 
-// 初始化一个线性表
+// 初始化一个链表
 func NewLinkList() *LinkList {
 	return &LinkList{}
 }
 
-// 线性表是否为空
+// 链表是否为空
 func (list *LinkList) ListEmpty() bool {
 	return list.head == nil
 }
 
-// 清空线性表
+// 清空链表
 func (list *LinkList) ClearList() {
 	var l1, l2 *Node
 	l1 = list.head
@@ -49,12 +49,12 @@ func (list *LinkList) ClearList() {
 	list.length = 0
 }
 
-// 返回线性表中元素的个数
+// 返回链表中元素的个数
 func (list *LinkList) Size() int {
 	return list.length
 }
 
-// 返回线性表中第i个元素
+// 返回链表中第i个元素
 func (list *LinkList) GetElem(index int) (interface{}, error) {
 	if list.length <= 0 {
 		return nil, fmt.Errorf("list is empty")
@@ -75,8 +75,8 @@ func (list *LinkList) GetElem(index int) (interface{}, error) {
 	return e, nil
 }
 
-// 线性表中查找元素e
-// 返回在线性表中第1个满足关系的数据元素的位序，如果不存在返回0
+// 链表中查找元素e
+// 返回在链表中第1个满足关系的数据元素的位序，如果不存在返回0
 func (list *LinkList) LocateElem(e interface{}) (int, error) {
 
 	if list.length <= 0 {
@@ -108,7 +108,7 @@ func (list *LinkList) AddToFirst(e interface{}) error {
 // 在最后一个结点插入元素e
 func (list *LinkList) AddToLast(e interface{}) error {
 	if list.ListEmpty() {
-		// 线性表为空插入第一个结点
+		// 链表为空插入第一个结点
 		return list.AddToFirst(e)
 	}
 
@@ -123,7 +123,7 @@ func (list *LinkList) AddToLast(e interface{}) error {
 	return nil
 }
 
-// 在线性表第i个位置之前插入元素e
+// 在链表第i个位置之前插入元素e
 func (list *LinkList) Insert(i int, e interface{}) error {
 	if i < 1 || i > list.length+1 {
 		return fmt.Errorf("invalid index value %d", i)
@@ -198,4 +198,31 @@ func (list *LinkList) Remove(i int) (interface{}, error) {
 	list.length--
 
 	return e, nil
+}
+
+// 反转链表
+func (list *LinkList) Reverse() {
+	p := list.head
+	var q *Node = nil
+
+	for p != nil {
+		t := p.next
+		p.next = q
+		q = p
+		p = t
+	}
+
+	list.head = q
+}
+
+// 依次输出链表元素
+func (list *LinkList) PrintList() {
+	l := list.head
+
+	for l != nil {
+		fmt.Printf("%v  ", l.data)
+		l = l.next
+	}
+
+	fmt.Println("")
 }

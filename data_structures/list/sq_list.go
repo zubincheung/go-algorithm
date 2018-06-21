@@ -1,6 +1,10 @@
 // Create by Zubin on 2018-06-14 14:31:49
 package list
 
+import (
+	"fmt"
+)
+
 const MAXSIZE = 20
 
 type SqList struct {
@@ -104,4 +108,22 @@ func (list *SqList) DeleteElem(i int) interface{} {
 	list.length--
 
 	return e
+}
+
+// 反转线性表
+func (list *SqList) Reverse() {
+
+	for index := 0; index <= list.length/2; index++ {
+		tmp := list.data[list.length-1-index]
+		list.data[list.length-1-index] = list.data[index]
+		list.data[index] = tmp
+	}
+}
+
+// 依次输出线性表元素
+func (list *SqList) PrintList() {
+	for index := 0; index < list.length; index++ {
+		fmt.Printf("%v  ", list.data[index])
+	}
+	fmt.Println("")
 }

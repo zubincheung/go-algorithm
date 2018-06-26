@@ -28,21 +28,11 @@ func NewLinkList() *LinkList {
 
 // 链表是否为空
 func (list *LinkList) ListEmpty() bool {
-	return list.head == nil
+	return list.length == 0
 }
 
 // 清空链表
 func (list *LinkList) ClearList() {
-	var l1, l2 *Node
-	l1 = list.head
-
-	for l1 != nil {
-		l1.data = nil
-
-		l2 = l1.next
-		l1.next = nil
-		l1 = l2
-	}
 
 	// 头结点指针域为空
 	list.head = nil

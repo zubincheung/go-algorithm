@@ -1,13 +1,8 @@
 package sort
 
-import (
-	"fmt"
-)
-
 func SimpleBubbleSort(list []int) {
 	for i := 0; i < len(list); i++ {
 		for j := i + 1; j < len(list); j++ {
-			fmt.Println(i, j, list[j-1], list[j])
 			if list[i] > list[j] {
 				swap(list, i, j)
 			}
@@ -19,7 +14,6 @@ func SimpleBubbleSort(list []int) {
 func BubbleSort(list []int) {
 	for i := 0; i < len(list); i++ {
 		for j := 1; j < len(list); j++ {
-			fmt.Println(i, j, list[j-1], list[j])
 			if list[j-1] > list[j] {
 				swap(list, j-1, j)
 			}
@@ -33,7 +27,6 @@ func FlagSwapBubbleSort(list []int) {
 	for i := 0; i < len(list) && hasSwaped; i++ {
 		hasSwaped = false
 		for j := 1; j < len(list); j++ {
-			fmt.Println(i, j, list[j-1], list[j])
 			if list[j-1] > list[j] {
 				swap(list, j-1, j)
 				hasSwaped = true
@@ -51,7 +44,6 @@ func FlagSwapPositionBubbleSort(list []int) {
 		hasSwaped = false
 		flag = laseSwapPosition
 		for j := 1; j < flag; j++ {
-			fmt.Println(i, j, list[j-1], list[j])
 			if list[j-1] > list[j] {
 				swap(list, j-1, j)
 

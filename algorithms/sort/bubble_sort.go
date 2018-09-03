@@ -46,7 +46,6 @@ func FlagSwapPositionBubbleSort(list []int) {
 		for j := 1; j < flag; j++ {
 			if list[j-1] > list[j] {
 				swap(list, j-1, j)
-
 				hasSwaped = true
 				laseSwapPosition = j
 			}

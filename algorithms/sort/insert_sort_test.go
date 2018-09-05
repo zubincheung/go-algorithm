@@ -20,6 +20,12 @@ func TestInsertSort(t *testing.T) {
 				want: []int{1, 3, 5, 6, 8, 9},
 			},
 		},
+		{
+			args: args{
+				list: []int{6, 3, 11, 1, 8, 5, 9},
+				want: []int{1, 3, 5, 6, 8, 9, 11},
+			},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

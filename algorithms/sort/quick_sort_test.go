@@ -21,8 +21,8 @@ func TestQuickSort(t *testing.T) {
 		},
 		{
 			args: args{
-				list: []int{6, 3, 11, 1, 8, 5, 9},
-				want: []int{1, 3, 5, 6, 8, 9, 11},
+				list: []int{6, 3, 11, 10, 1, 18, 9, 8, 5, 4},
+				want: []int{1, 3, 4, 5, 6, 8, 9, 10, 11, 18},
 			},
 		},
 	}

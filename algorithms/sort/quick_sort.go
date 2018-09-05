@@ -25,7 +25,7 @@ func partition(list []int, low, hight int) int {
 			hight--
 		}
 		swap(list, low, hight)
-		//把小于pivotKey的交换到低端
+		//把大于pivotKey的交换到高端
 		for low < hight && list[low] < pivotKey {
 			low++
 		}

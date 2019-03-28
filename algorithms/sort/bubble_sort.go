@@ -13,7 +13,7 @@ func SimpleBubbleSort(list []int) {
 
 func BubbleSort(list []int) {
 	for i := 0; i < len(list); i++ {
-		for j := 1; j < len(list); j++ {
+		for j := 1; j < len(list)-i; j++ {
 			if list[j-1] > list[j] {
 				swap(list, j-1, j)
 			}

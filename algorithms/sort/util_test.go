@@ -1,7 +1,3 @@
-// Create by Zubin on 2018-08-28 15:34:56
-
-// Create by Zubin on 2018-08-28 15:30:33
-
 package sort
 
 import "testing"
